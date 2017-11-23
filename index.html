@@ -66,7 +66,7 @@ function svgToPng() {
 
 var width = $(window).width(),//1200,
     height = $(window).height()-20,
-    outerRadius = Math.min(width, height) / 2 - 130,
+    outerRadius = Math.min(width, height) / 2 - 145,
     innerRadius = outerRadius - 28;
 
 var formatPercent = d3.format(".3f");
@@ -854,7 +854,7 @@ function trophical(){
       .style("fill", function(d, i) { return cities[i].color; })
     .attr("shape-rendering","crispEdges")
     .attr("font-family","Arial")
-    .attr("font-size","17px");
+    .attr("font-size","19px");
     
     
     
@@ -1098,7 +1098,7 @@ function taxa(){
       .style("fill", function(d, i) { return cities[i].color; })
     .attr("shape-rendering","crispEdges")
     .attr("font-family","Arial")
-    .attr("font-size","17px");
+    .attr("font-size","19px");
     
     
     
