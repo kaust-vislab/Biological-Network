@@ -43,7 +43,20 @@ path.chord {
 <button type="button"  id='all' onclick="allchords()" style= "background-color: #ccc ;border-color: #333; border-width: 3px;     margin-top: 2px" >Show All Chords </button>
 <button type="button"  id='pos' onclick="positivechords()" style= "background-color: hsl(119, 33%, 65%) ;border-color: #8bc48a ; border-width: 3px;" >Show Only Positive</button>
 <button type="button"  id='neg' onclick="negativechords()" style= "background-color:  hsl(1, 97%, 77%);border-color: #fd8b8a; border-width: 3px;" >Show Only Negative</button>
-<button id='saveButton' style="margin-top: 30px;     margin-left: -250px; position: absolute; border: 1px solid; border-color: #245580;border-radius: 4px; font-size: 12px;height: 30px;" onclick="svgToPng()">Export Vis to PNG</button>
+<button id='saveButton' style="margin-top: 30px;     margin-left: -320px; position: absolute; border: 1px solid; border-color: #245580;border-radius: 4px; font-size: 12px;height: 30px;" onclick="svgToPng()">Export Vis to PNG</button>
+
+<select id="fulloptions_select" onchange="OptionChange(this)" style ="margin-top: 30px; margin-left: -200px; position: absolute; background: hsl(119, 33%, 65%);  border-width: thick; 
+                                       font-size: 12px;height: 30px; border: 1px solid; border-color: hsl(119, 33%, 65%);border-radius: 4px;">
+                                       <option value="18">FontSize:18</option>
+                                       <option value="20">FontSize:20</option>
+                                       <option value="22">FontSize:22</option>
+                                       <option value="24">FontSize:24</option>
+                                       <option value="26">FontSize:26</option>
+                                       <option value="28">FontSize:28</option>
+                                       <option value="30">FontSize:30</option>
+                                       <option value="32">FontSize:32</option>                                       
+</select>
+
 </div>
 
 
@@ -60,9 +73,12 @@ path.chord {
  -->
 <script>
 
+
+
 function svgToPng() {
             saveSvgAsPng(d3.select('svg').node(), 'vis.png', {scale:2.5});
 }  
+
 
 var width = $(window).width(),//1200,
     height = $(window).height()-20,
@@ -649,9 +665,19 @@ var taxaortroph = true;  // true for taxa false for trophical
 var group_filename= "species-taxa-quant.csv";
 var matrix_name="matrix2quant.json";
 
+
 taxa();
 
 var quanorqual=true; //true for quan
+
+var text_f_size = 20;
+function OptionChange(val) {
+    //console.log(val.value);
+    text_f_size = val.value;
+    if(quanorqual) updatequan();
+    else  updatequal();
+
+}
 
  //Append Legends
 var teams = [
@@ -854,7 +880,7 @@ function trophical(){
       .style("fill", function(d, i) { return cities[i].color; })
     .attr("shape-rendering","crispEdges")
     .attr("font-family","Arial")
-    .attr("font-size","19px");
+    .attr("font-size", text_f_size+ "px");
     
     
     
@@ -1098,7 +1124,7 @@ function taxa(){
       .style("fill", function(d, i) { return cities[i].color; })
     .attr("shape-rendering","crispEdges")
     .attr("font-family","Arial")
-    .attr("font-size","19px");
+    .attr("font-size", text_f_size+"px");
     
     
     
