@@ -34,9 +34,9 @@ path.chord {
 
 
 <div style="text-align:center; margin-top: -2px;">
-<button type="button"  id='quan' onclick="updatequan()"  style= "background-color: hsl(119, 33%, 65%); border-color: rgba(5, 12, 7, 0.5); border-width: 3px;">Quantitative Data</button>
+<!-- <button type="button"  id='quan' onclick="updatequan()"  style= "background-color: hsl(119, 33%, 65%); border-color: rgba(5, 12, 7, 0.5); border-width: 3px;">Quantitative Data</button>
 <button type="button"  id='qual' onclick="updatequal()" style= "background-color: hsl(119, 33%, 65%);border-color: hsl(119, 33%, 65%); border-width: 3px;" >Qualitative Data</button>
-<br>
+<br> -->
 <button type="button"  id='taxa' onclick="updatetaxa()"  style= "background-color: hsl(119, 33%, 65%); border-color: rgba(5, 12, 7, 0.5); border-width: 3px;     margin-top: 2px">Taxa Group</button>
 <button type="button"  id='trophical' onclick="updatetrophical()" style= "background-color: hsl(119, 33%, 65%);border-color: hsl(119, 33%, 65%); border-width: 3px;" >Trophical Group</button>
  <br>
@@ -53,8 +53,8 @@ path.chord {
                                        <option value="24">FontSize:24</option>
                                        <option value="26">FontSize:26</option>
                                        <option value="28">FontSize:28</option>
-                                       <option value="30">FontSize:30</option>
-                                       <option value="32">FontSize:32</option>                                       
+                                       <!-- <option value="30">FontSize:30</option>
+                                       <option value="32">FontSize:32</option>   -->                                     
 </select>
 
 </div>
@@ -101,8 +101,8 @@ var path = d3.svg.chord()
     .radius(innerRadius-5);
 
 var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", $(window).height())
+    .attr("width", width-10)
+    .attr("height", $(window).height()-65)
   .append("g")
     .attr("id", "circle")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -344,11 +344,11 @@ var colors = [  "#083E77", "#6495ED","transparent","green","red"];  //, "#8a2c11
 
 function updatequan(){
   quanorqual=true;
-  $('#quan')["0"].style.borderColor= "rgba(5, 12, 7, 0.5)";
-  // $('#taxa')["0"].style.backgroundColor= "#5a9e16";
+  // $('#quan')["0"].style.borderColor= "rgba(5, 12, 7, 0.5)";
+  // // $('#taxa')["0"].style.backgroundColor= "#5a9e16";
 
-   $('#qual')["0"].style.borderColor= "hsl(119, 33%, 65%)";  
-   $('#qual')["0"].style.backgroundColor= "hsl(119, 33%, 65%)";
+  //  $('#qual')["0"].style.borderColor= "hsl(119, 33%, 65%)";  
+  //  $('#qual')["0"].style.backgroundColor= "hsl(119, 33%, 65%)";
 
 
 if(taxaortroph)  updatetaxa();
@@ -389,8 +389,8 @@ function updatetaxa(){
  d3.select("#foot").remove();
 
    svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
+    .attr("width", width-10)
+    .attr("height", $(window).height()-65)
   .append("g")
     .attr("id", "circle")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -405,7 +405,7 @@ svg.append("circle")
   document.getElementsByTagName('body')[0].appendChild(iDiv);
   //iDiv.innerHTML = " <a href='https://kvl.kaust.edu.sa/Pages/Home.aspx'>Created By KAUST Visualization Core Lab, August 2017</a>";
 
-var html = '<div id="foot" <ul class="footer" style = "margin: -110px 0 0 0;margin-left: 500px; border-top: 0px dotted #aaa; padding: 0.1px 0 0 0;  text-align: right;  "> <li style="display: inline-block; font-size: small;"><a href="https://kvl.kaust.edu.sa/Pages/Home.aspx">Created By KAUST Visualization Core Lab, February 2019</a></li></div>'
+var html = '<div id="foot" <ul class="footer" style = "margin: -30px 0 0 0;margin-left: 500px; border-top: 0px dotted #aaa; padding: 0.1px 0 0 0;  text-align: right;  "> <li style="display: inline-block; font-size: small;"><a href="https://kvl.kaust.edu.sa/Pages/Home.aspx">Created By KAUST Visualization Core Lab, February 2019</a></li></div>'
 $('#foot').html(html);
 
 
@@ -444,8 +444,8 @@ function updatetrophical(){
   d3.select("#foot").remove();
 
    svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
+    .attr("width", width-10)
+    .attr("height", $(window).height()-65)
   .append("g")
     .attr("id", "circle")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -459,7 +459,7 @@ svg.append("circle")
   iDiv.className = 'block';
   document.getElementsByTagName('body')[0].appendChild(iDiv);
   //iDiv.innerHTML = " <a href='https://kvl.kaust.edu.sa/Pages/Home.aspx'>Created By KAUST Visualization Core Lab, August 2017</a>";
-  var html = '<div id="foot" <ul class="footer" style = "margin: -110px 0 0 0;margin-left: 500px; border-top: 0px dotted #aaa; padding: 0.1px 0 0 0;  text-align: right;  "> <li style="display: inline-block; font-size: small;"><a href="https://kvl.kaust.edu.sa/Pages/Home.aspx">Created By KAUST Visualization Core Lab, February 2019</a></li></div>'
+  var html = '<div id="foot" <ul class="footer" style = "margin: -30px 0 0 0;margin-left: 500px; border-top: 0px dotted #aaa; padding: 0.1px 0 0 0;  text-align: right;  "> <li style="display: inline-block; font-size: small;"><a href="https://kvl.kaust.edu.sa/Pages/Home.aspx">Created By KAUST Visualization Core Lab, February 2019</a></li></div>'
 $('#foot').html(html);
  //  if (showchords==2){
  //       svg.selectAll(".chord").style("opacity", function(d){
@@ -1043,7 +1043,7 @@ function negativechords(){
 
 </script>
 
-<div id="foot" <ul class="footer" style = "margin: -110px 0 0 0;margin-left: 500px; border-top: 0px dotted #aaa; padding: 0.1px 0 0 0;  text-align: right;  ">
+<div id="foot" <ul class="footer" style = "margin: -30px 0 0 0;margin-left: 500px; border-top: 0px dotted #aaa; padding: 0.1px 0 0 0;  text-align: right;  ">
         <li style="display: inline-block; font-size: small;"><a href='https://kvl.kaust.edu.sa/Pages/Home.aspx'>Created By KAUST Visualization Core Lab, February 2019</a></li>           
 </div>
 
